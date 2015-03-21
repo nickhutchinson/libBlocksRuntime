@@ -75,4 +75,4 @@ endif ()
 install(TARGETS blocksRuntimeStatic blocksRuntimeShared
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib)
-install(FILES ${headers} DESTINATION include)
+install(FILES ${headers} DESTINATION include/Blocks)
