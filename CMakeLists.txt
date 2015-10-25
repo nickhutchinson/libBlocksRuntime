@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.7)
 project(BlocksRuntime C)
 
 if (NOT CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE MinSizeRel)
+  set(CMAKE_BUILD_TYPE Release)
 endif ()
 
 include (CheckCSourceCompiles)
@@ -40,6 +40,11 @@ add_definitions(
   -fvisibility=hidden
   -fPIC
 )
+
+if (CMAKE_BUILD_TYPE MATCHES Release)
+  # Always build with debug symbols.
+  add_definitions(-g)
+endif ()
 
 include_directories(
     "${CMAKE_CURRENT_SOURCE_DIR}"
